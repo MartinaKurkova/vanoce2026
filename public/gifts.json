@@ -1,29 +1,137 @@
 [
   {
     "id": "priklad-1",
-    "name": "Ukázka: dřevěná stavebnice",
-    "price": 890,
-    "for": "Dítě 1",
-    "image": "",
-    "heureka": "https://www.heureka.cz/",
+    "name": "LEGO® Creator 31386 Divoká zvířata: Majestátní lev",
+    "price": "1000 Kč",
+    "for": "Pro Šimona",
+    "image": "img/lev.png",
+    "heureka": "https://lego.heureka.cz/lego-creator-31386-divoka-zvirata-majestatni-lev/?utm_content=css_feed&css-feed=1&utm_source=google&utm_medium=cpc&utm_campaign=CZ%3EPRF%3ECG%3EHracky%3ESERP%3EPROD%3E%28PLA%29%3E%5BCSS%5D%3E%5Bmedium%5D&utm_id=22271594791&gad_source=1&gad_campaignid=22271594791&gbraid=0AAAAADqB1c6H2Dqm8BctTw5-l2SZcmXyU&gclid=CjwKCAjwxpvXBhASEiwAue4B4Whr6gccnPA_Ihc7276lJSMTf47KDa5UnjWiEuUc_YIeaUfPofTDbhoCCVIQAvD_BwE#prehled/",
     "example": true
   },
   {
     "id": "priklad-2",
-    "name": "Ukázka: knížka s příběhy",
-    "price": 349,
-    "for": "Dítě 2",
-    "image": "",
-    "heureka": "https://www.heureka.cz/",
+    "name": "LEGO® Creator 31384 Divoká zvířata: Barevný kolibřík",
+    "price": "500 Kč",
+    "for": "Pro Mikiho",
+    "image": "img/kolibrik.png",
+    "heureka": "https://lego.heureka.cz/lego-creator-31384-divoka-zvirata-barevny-kolibrik/?utm_source=google&utm_medium=cpc&utm_campaign=CZ%3EPRF%3ECG%3EHracky%3ESERP%3ECAT%3E%28DSA%2BKW%29&utm_id=1723318021&gad_source=1&gad_campaignid=1723318021&gbraid=0AAAAADqB1c6eFAlxDtnttqVvHtwrQ0gKv&gclid=CjwKCAjwxpvXBhASEiwAue4B4aMflOxK5huyQpEuUaWMwXArC17ZytAzWipv41jnxiVePf7e5DNUrhoC-qUQAvD_BwE#utm_source=volowishlist.com&utm_medium=affiliate&utm_campaign=24255&utm_content=Text%20link",
     "example": true
   },
   {
     "id": "priklad-3",
-    "name": "Ukázka: zimní bunda",
-    "price": "1 500 až 2 000 Kč",
-    "for": "Dítě 1",
-    "image": "",
-    "heureka": "https://www.heureka.cz/",
+    "name": "LEGO® Creator 31159 Divoká zvířata: Překvapivý pavouk",
+    "price": "220 Kč",
+    "for": "Pro Šimona",
+    "image": "img/pavouk.png",
+    "heureka": "https://lego.heureka.cz/lego-creator-31159-divoka-zvirata-prekvapivy-pavouk/?ppcbee-adtext-variant=RSA-dynamic-NEW&utm_source=google&utm_medium=cpc&utm_campaign=CZ%3EPRF%3ECG%3EHracky%3ESERP%3ECAT%3E%28DSA%2BKW%29&utm_id=1723318021&gad_source=1&gad_campaignid=1723318021&gbraid=0AAAAADqB1c6eFAlxDtnttqVvHtwrQ0gKv&gclid=CjwKCAjwxpvXBhASEiwAue4B4QZnBam1A15eymnzHH_IpNW9CV2rzwurgvqDtlGO-nRiXfdzSM-VuBoCfE8QAvD_BwE#prehled/",
+    "example": true
+  },
+  {
+    "id": "priklad-4",
+    "name": "LEGO® Creator 31376 Roztomilý křeček s květinou",
+    "price": "180 Kč",
+    "for": "Pro Mikiho",
+    "image": "img/krecek.png",
+    "heureka": "https://lego.heureka.cz/lego-creator-31376-roztomily-krecek-s-kvetinou/#prehled/",
+    "example": true
+  },
+    {
+    "id": "priklad-5",
+    "name": "Stolní fotbal",
+    "price": "300 Kč",
+    "for": "Pro Šimona",
+    "image": "img/fotbal.webp",
+    "heureka": "https://stolni-fotbalky.heureka.cz/chemoplast-kopana-standard/#prehled/",
+    "example": true
+  },
+  {
+    "id": "priklad-6",
+    "name": "Stolní hokej",
+    "price": "500 Kč",
+    "for": "Pro Mikiho",
+    "image": "img/hokej.jpg",
+    "heureka": "https://stolni-hokeje.heureka.cz/chemoplast-plast-53x30_5x7cm/#prehled/",
+    "example": true
+  },
+  {
+    "id": "priklad-7",
+    "name": "Hoď sebou, slepičí prdelko!",
+    "price": "500 Kč",
+    "for": "Jedno pro koho",
+    "image": "img/prdelka.jpg",
+    "heureka": "https://deskove-hry.heureka.cz/asmodee-hod-sebou-slepici-prdelko/#prehled/",
+    "example": true
+  },
+  {
+    "id": "priklad-8",
+    "name": "Sologic Pentanimo",
+    "price": "500 Kč",
+    "for": "Pro Šimona",
+    "image": "img/solo.jpg",
+    "heureka": "https://deskove-hry.heureka.cz/djeco-logicka-hra-sologic-pentanimo/#prehled/",
+    "example": true
+  },
+   {
+    "id": "priklad-9",
+    "name": "Souprava ČD Pendolino",
+    "price": "530 Kč",
+    "for": "Pro Mikiho",
+    "image": "img/pendolino.jpg",
+    "heureka": "https://www.cd.cz/fanshop/hracky-hry-a-zabava/3929-drevena-souprava-cd-pendolino--647069697750.html",
+    "example": true
+  },
+   {
+    "id": "priklad-10",
+    "name": "Express souprava Šinkanzen",
+    "price": "440 Kč",
+    "for": "Pro Šimona",
+    "image": "img/sinkan.jpg",
+    "heureka": "https://www.cd.cz/fanshop/hracky-hry-a-zabava/3874-express-souprava-sinkanzen-50473-647069504737.html",
+    "example": true
+  },
+    {
+    "id": "priklad-11",
+    "name": "Mlsné medvědí příběhy - Kvarteto",
+    "price": "50 Kč",
+    "for": "Jedno pro koho",
+    "image": "img/kvarteto.jpg",
+    "heureka": "https://albi.cz/mlsne-medvedi-pribehy-kvarteto/",
+    "example": true
+  },
+    {
+    "id": "priklad-12",
+    "name": "Puzzle EDUCA Outside,Inside Dům 2x100 dílků",
+    "price": "250 Kč",
+    "for": "Dohromady",
+    "image": "img/puzzle.webp",
+    "heureka": "https://puzzle.heureka.cz/educa-outside-inside-dum-2x100-dilku/#prehled/",
+    "example": true
+  }, 
+  {
+    "id": "priklad-13",
+    "name": "Kvído - Písmenka v kostce",
+    "price": "300 Kč",
+    "for": "Jedno pro koho",
+    "image": "img/pismena.jpg",
+    "heureka": "https://deskove-hry.heureka.cz/albi-kvido-pismenka-v-kostce/#prehled/",
+    "example": true
+  },
+  {
+    "id": "priklad-14",
+    "name": "O vzniku druhů",
+    "price": "200 Kč",
+    "for": "Jedno pro koho",
+    "image": "img/vznik.webp",
+    "heureka": "https://knihy.heureka.cz/o-vzniku-druhu-darwinova-teorie-pro-deti/#prehled/",
+    "example": true
+  },
+    {
+    "id": "priklad-15",
+    "name": "Pipi Dlouhá punčocha",
+    "price": "300 Kč",
+    "for": "Jedno pro koho",
+    "image": "img/pipi.jpg",
+    "heureka": "https://knihy.heureka.cz/pipi-dlouha-puncocha_24/#prehled/",
     "example": true
   }
 ]
