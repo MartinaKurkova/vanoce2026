@@ -1,0 +1,359 @@
+<!doctype html>
+<html lang="cs">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Vánoční přání</title>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Figtree:wght@400;500;600&family=Instrument+Serif&display=swap">
+<style>
+/* Layout: úzký sloupec, nadpis vlevo, karty v mřížce s fotkou nahoře; jediný akcent je tmavá smrková zelená. */
+:root {
+  color-scheme: light;
+  --bg: #f6f7f5;
+  --surface: #ffffff;
+  --ink: #1b1f1c;
+  --muted: #667069;
+  --line: #e2e6e1;
+  --accent: #1f4d3a;
+  --accent-ink: #ffffff;
+  --tile: #eceee9;
+  --font-display: "Instrument Serif", Georgia, "Times New Roman", serif;
+  --font-body: "Figtree", system-ui, -apple-system, "Segoe UI", sans-serif;
+}
+@media (prefers-color-scheme: dark) {
+  :root {
+    color-scheme: dark;
+    --bg: #111412;
+    --surface: #181c19;
+    --ink: #eceeeb;
+    --muted: #9aa49d;
+    --line: #2a302b;
+    --accent: #8fd0b0;
+    --accent-ink: #0f1a14;
+    --tile: #1f2421;
+  }
+}
+
+* { box-sizing: border-box; }
+html { background: var(--bg); }
+body {
+  margin: 0;
+  background: var(--bg);
+  color: var(--ink);
+  font-family: var(--font-body);
+  font-size: 16px;
+  line-height: 1.5;
+  padding-block: 40px 64px;
+  padding-left: max(16px, env(safe-area-inset-left, 0px));
+  padding-right: max(16px, env(safe-area-inset-right, 0px));
+}
+img { max-width: 100%; }
+[hidden] { display: none !important; }
+.wrap { max-width: 1040px; margin: 0 auto; }
+
+header { display: grid; gap: 12px; margin-bottom: 28px; }
+.eyebrow { font-size: 13px; letter-spacing: 0.08em; text-transform: uppercase; color: var(--muted); }
+h1 {
+  font-family: var(--font-display);
+  font-weight: 400;
+  font-size: clamp(40px, 8vw, 64px);
+  line-height: 1.02;
+  margin: 0;
+  text-wrap: balance;
+}
+.lead { margin: 0; max-width: 56ch; color: var(--muted); }
+
+.toolbar {
+  display: flex; flex-wrap: wrap; gap: 16px 24px; align-items: end;
+  padding-block: 16px; margin-bottom: 24px;
+  border-block: 1px solid var(--line);
+}
+.field { display: grid; gap: 4px; min-width: 0; }
+.field label { font-size: 13px; color: var(--muted); }
+.field input {
+  font: inherit; color: var(--ink); background: var(--surface);
+  border: 1px solid var(--line); border-radius: 6px;
+  padding: 8px 12px; width: min(100%, 260px);
+}
+.field input:focus-visible { outline: 2px solid var(--accent); outline-offset: 1px; }
+.field input.need { border-color: var(--accent); }
+.chips { display: flex; flex-wrap: wrap; gap: 8px; }
+.chip {
+  font: inherit; font-size: 14px; color: var(--ink); background: transparent;
+  border: 1px solid var(--line); border-radius: 999px; padding: 6px 14px; cursor: pointer;
+}
+.chip[aria-pressed="true"] { background: var(--accent); color: var(--accent-ink); border-color: var(--accent); }
+.chip:focus-visible, .btn:focus-visible, .linkbtn:focus-visible, a:focus-visible { outline: 2px solid var(--accent); outline-offset: 2px; }
+.count { margin-left: auto; font-size: 14px; color: var(--muted); font-variant-numeric: tabular-nums; }
+
+.note {
+  margin: 0 0 20px; padding: 10px 14px; font-size: 14px; color: var(--muted);
+  border: 1px dashed var(--line); border-radius: 6px;
+}
+
+.grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(min(100%, 280px), 1fr)); gap: 24px; }
+.card { display: flex; flex-direction: column; min-width: 0; background: var(--surface); border: 1px solid var(--line); border-radius: 8px; overflow: hidden; }
+.photo { aspect-ratio: 4 / 3; background: var(--tile); display: grid; place-items: center; overflow: hidden; }
+.photo img { width: 100%; height: 100%; object-fit: cover; display: block; }
+.photo .initial { font-family: var(--font-display); font-size: 64px; color: var(--muted); }
+.card.taken .photo { opacity: 0.45; }
+.body { display: flex; flex-direction: column; gap: 10px; padding: 16px; flex: 1; min-width: 0; }
+.name { margin: 0; font-size: 18px; font-weight: 600; line-height: 1.3; overflow-wrap: anywhere; }
+.meta { display: flex; flex-wrap: wrap; gap: 4px 12px; font-size: 14px; color: var(--muted); }
+.meta b { color: var(--ink); font-weight: 500; }
+.price { font-variant-numeric: tabular-nums; }
+.link { font-size: 14px; color: var(--accent); }
+.actions { margin-top: auto; display: grid; gap: 8px; padding-top: 6px; }
+.btn {
+  font: inherit; font-weight: 500; cursor: pointer; border-radius: 6px;
+  padding: 10px 14px; border: 1px solid var(--accent);
+  background: var(--accent); color: var(--accent-ink);
+}
+.btn:disabled { opacity: 0.55; cursor: default; }
+.status { font-size: 14px; color: var(--muted); }
+.status b { color: var(--ink); font-weight: 600; }
+.linkbtn { font: inherit; font-size: 14px; color: var(--muted); background: none; border: 0; padding: 0; text-decoration: underline; cursor: pointer; justify-self: start; }
+
+.empty { padding: 48px 0; color: var(--muted); }
+.toast {
+  position: fixed; left: 50%; transform: translateX(-50%);
+  bottom: calc(20px + env(safe-area-inset-bottom, 0px));
+  max-width: calc(100% - 32px); background: var(--ink); color: var(--bg);
+  padding: 10px 16px; border-radius: 6px; font-size: 14px; z-index: 5;
+}
+@media (prefers-reduced-motion: no-preference) {
+  .card { transition: border-color 0.15s; }
+  .card:hover { border-color: var(--muted); }
+}
+</style>
+</head>
+<body>
+<div class="wrap">
+  <header>
+    <span class="eyebrow">Vánoce 2026</span>
+    <h1>Co si přejeme</h1>
+    <p class="lead">Napište nahoru své jméno, vyberte dárek a klikněte na Rezervovat. Ostatním se pak zobrazí jako zarezervovaný a nikdo ho nekoupí podruhé. Není potřeba žádná registrace.</p>
+  </header>
+
+  <div class="toolbar">
+    <div class="field">
+      <label for="who">Vaše jméno</label>
+      <input id="who" type="text" autocomplete="given-name" placeholder="například Babi Jana" maxlength="40">
+    </div>
+    <div class="chips" id="chips" role="group" aria-label="Pro koho"></div>
+    <span class="count" id="count" aria-live="polite"></span>
+  </div>
+
+  <p class="note" id="demo" hidden>Zatím jsou tu jen ukázkové dárky, jejich seznam se nahradí skutečným.</p>
+  <p class="note" id="offline" hidden>Rezervace se teď nepodařilo načíst, takže tlačítka jsou vypnutá. Zkuste stránku za chvíli znovu otevřít.</p>
+
+  <main class="grid" id="grid"></main>
+</div>
+<div class="toast" id="toast" hidden role="status"></div>
+
+<script>
+(function () {
+  var gifts = [];
+  var reservations = {};
+  var apiOk = false;
+  var busy = {};
+  var filter = "";
+  var token = "";
+  var toastTimer = null;
+
+  var grid = document.getElementById("grid");
+  var chipsEl = document.getElementById("chips");
+  var countEl = document.getElementById("count");
+  var whoEl = document.getElementById("who");
+  var toastEl = document.getElementById("toast");
+
+  function store(op, key, val) {
+    try { return op === "get" ? localStorage.getItem(key) : localStorage.setItem(key, val); } catch (e) { return null; }
+  }
+  function makeToken() {
+    var a = new Uint8Array(16);
+    if (window.crypto && crypto.getRandomValues) crypto.getRandomValues(a);
+    else for (var i = 0; i < a.length; i++) a[i] = Math.floor(Math.random() * 256);
+    return "t" + Array.prototype.map.call(a, function (b) { return b.toString(16).padStart(2, "0"); }).join("");
+  }
+  token = store("get", "gift-token") || makeToken();
+  store("set", "gift-token", token);
+  whoEl.value = store("get", "gift-name") || "";
+  whoEl.addEventListener("input", function () { store("set", "gift-name", whoEl.value.trim()); whoEl.classList.remove("need"); });
+
+  function el(tag, cls, text) {
+    var n = document.createElement(tag);
+    if (cls) n.className = cls;
+    if (text != null) n.textContent = text;
+    return n;
+  }
+  function toast(msg) {
+    toastEl.textContent = msg; toastEl.hidden = false;
+    clearTimeout(toastTimer);
+    toastTimer = setTimeout(function () { toastEl.hidden = true; }, 3500);
+  }
+  function priceText(p) {
+    if (typeof p === "number") return "cca " + p.toLocaleString("cs-CZ") + " Kč";
+    return p ? String(p) : "";
+  }
+  function safeUrl(u) { return /^https?:\/\//i.test(u || "") ? u : ""; }
+  function initial(g) { return (g.name || "?").replace(/^Ukázka:\s*/, "").charAt(0).toUpperCase(); }
+
+  function people() {
+    var seen = [];
+    gifts.forEach(function (g) { if (g.for && seen.indexOf(g.for) < 0) seen.push(g.for); });
+    return seen;
+  }
+  function renderChips() {
+    chipsEl.textContent = "";
+    var list = people();
+    if (list.length < 2) { chipsEl.hidden = true; return; }
+    chipsEl.hidden = false;
+    [""].concat(list).forEach(function (p) {
+      var b = el("button", "chip", p || "Všichni");
+      b.type = "button";
+      b.setAttribute("aria-pressed", String(filter === p));
+      b.addEventListener("click", function () { filter = p; renderChips(); render(); });
+      chipsEl.appendChild(b);
+    });
+  }
+
+  function photo(g) {
+    var box = el("div", "photo");
+    if (g.image) {
+      var img = el("img");
+      img.alt = g.name || "";
+      img.loading = "lazy";
+      img.addEventListener("error", function () { box.textContent = ""; box.appendChild(el("span", "initial", initial(g))); });
+      img.src = g.image;
+      box.appendChild(img);
+    } else {
+      box.appendChild(el("span", "initial", initial(g)));
+    }
+    return box;
+  }
+
+  function actions(g) {
+    var wrap = el("div", "actions");
+    var r = reservations[g.id];
+    if (r) {
+      var st = el("div", "status");
+      st.appendChild(document.createTextNode("Rezervuje "));
+      st.appendChild(el("b", null, r.by));
+      wrap.appendChild(st);
+      var c = el("button", "linkbtn", "Zrušit rezervaci");
+      c.type = "button";
+      c.disabled = !!busy[g.id];
+      c.addEventListener("click", function () { cancel(g); });
+      wrap.appendChild(c);
+      return wrap;
+    }
+    var b = el("button", "btn", busy[g.id] ? "Ukládám…" : "Rezervovat");
+    b.type = "button";
+    b.disabled = !apiOk || !!busy[g.id];
+    b.addEventListener("click", function () { reserve(g); });
+    wrap.appendChild(b);
+    return wrap;
+  }
+
+  function card(g) {
+    var taken = !!reservations[g.id];
+    var c = el("article", "card" + (taken ? " taken" : ""));
+    c.appendChild(photo(g));
+    var body = el("div", "body");
+    body.appendChild(el("h2", "name", g.name || "Dárek"));
+    var meta = el("div", "meta");
+    if (g.for) { var f = el("span"); f.appendChild(document.createTextNode("Pro: ")); f.appendChild(el("b", null, g.for)); meta.appendChild(f); }
+    var pt = priceText(g.price);
+    if (pt) meta.appendChild(el("span", "price", pt));
+    body.appendChild(meta);
+    var url = safeUrl(g.heureka);
+    if (url) {
+      var a = el("a", "link", "Zobrazit na Heureka.cz");
+      a.href = url; a.target = "_blank"; a.rel = "noopener noreferrer";
+      body.appendChild(a);
+    }
+    body.appendChild(actions(g));
+    c.appendChild(body);
+    return c;
+  }
+
+  function render() {
+    grid.textContent = "";
+    var shown = gifts.filter(function (g) { return !filter || g.for === filter; });
+    if (!gifts.length) grid.appendChild(el("p", "empty", "Seznam dárků se právě připravuje. Zkuste to prosím za chvíli."));
+    shown.forEach(function (g) { grid.appendChild(card(g)); });
+    var free = shown.filter(function (g) { return !reservations[g.id]; }).length;
+    countEl.textContent = gifts.length ? (apiOk ? "Volných dárků: " + free + " z " + shown.length : "Dárků: " + shown.length) : "";
+    document.getElementById("demo").hidden = !gifts.some(function (g) { return g.example; });
+    document.getElementById("offline").hidden = apiOk || !gifts.length;
+  }
+
+  function post(payload) {
+    return fetch("/api/reservations", {
+      method: "POST",
+      headers: { "content-type": "application/json" },
+      body: JSON.stringify(payload)
+    });
+  }
+
+  async function loadReservations() {
+    try {
+      var res = await fetch("/api/reservations", { cache: "no-store" });
+      if (!res.ok) throw new Error("http " + res.status);
+      var data = await res.json();
+      reservations = data.reservations || {};
+      apiOk = true;
+    } catch (e) {
+      apiOk = false;
+    }
+    render();
+  }
+
+  async function reserve(g) {
+    var name = whoEl.value.trim();
+    if (!name) { whoEl.classList.add("need"); whoEl.focus(); toast("Napište nejdřív své jméno."); return; }
+    store("set", "gift-name", name);
+    busy[g.id] = true; render();
+    try {
+      var res = await post({ action: "reserve", id: g.id, name: name, token: token });
+      if (res.status === 409) toast("Tento dárek už si někdo rezervoval.");
+      else if (!res.ok) toast("Rezervace se nepovedla. Zkuste to znovu.");
+      else toast("Zarezervováno. Děkujeme!");
+    } catch (e) {
+      toast("Rezervace se nepovedla. Zkontrolujte připojení a zkuste to znovu.");
+    }
+    delete busy[g.id];
+    await loadReservations();
+  }
+
+  async function cancel(g) {
+    busy[g.id] = true; render();
+    try {
+      var res = await post({ action: "cancel", id: g.id, token: token });
+      if (res.status === 403) toast("Rezervaci může zrušit jen ten, kdo ji udělal, ze stejného zařízení.");
+      else if (!res.ok) toast("Zrušení se nepovedlo. Zkuste to znovu.");
+      else toast("Rezervace zrušena.");
+    } catch (e) {
+      toast("Zrušení se nepovedlo. Zkontrolujte připojení a zkuste to znovu.");
+    }
+    delete busy[g.id];
+    await loadReservations();
+  }
+
+  async function start() {
+    try {
+      var res = await fetch("gifts.json", { cache: "no-cache" });
+      gifts = await res.json();
+    } catch (e) { gifts = []; }
+    renderChips();
+    render();
+    await loadReservations();
+  }
+
+  document.addEventListener("visibilitychange", function () { if (!document.hidden && gifts.length) loadReservations(); });
+  start();
+})();
+</script>
+</body>
+</html>

@@ -1,0 +1,29 @@
+[
+  {
+    "id": "priklad-1",
+    "name": "Ukázka: dřevěná stavebnice",
+    "price": 890,
+    "for": "Dítě 1",
+    "image": "",
+    "heureka": "https://www.heureka.cz/",
+    "example": true
+  },
+  {
+    "id": "priklad-2",
+    "name": "Ukázka: knížka s příběhy",
+    "price": 349,
+    "for": "Dítě 2",
+    "image": "",
+    "heureka": "https://www.heureka.cz/",
+    "example": true
+  },
+  {
+    "id": "priklad-3",
+    "name": "Ukázka: zimní bunda",
+    "price": "1 500 až 2 000 Kč",
+    "for": "Dítě 1",
+    "image": "",
+    "heureka": "https://www.heureka.cz/",
+    "example": true
+  }
+]
