@@ -133,5 +133,23 @@
     "image": "img/pipi.jpg",
     "heureka": "https://knihy.heureka.cz/pipi-dlouha-puncocha_24/#prehled/",
     "example": true
+  },
+  {
+    "id": "priklad-16",
+    "name": "Merkur T-Rex",
+    "price": "300 Kč",
+    "for": "Jedno pro koho",
+    "image": "img/rex.jpeg",
+    "heureka": "https://stavebnice-merkur.heureka.cz/merkur-dino-tyranosaurus-rex/#prehled/",
+    "example": true
+  },
+  {
+    "id": "priklad-17",
+    "name": "Merkur Stegosaurus",
+    "price": "220 Kč",
+    "for": "Jedno pro koho",
+    "image": "img/stego.jpeg",
+    "heureka": "https://stavebnice-merkur.heureka.cz/merkur-dino-stegosaurus/#prehled/",
+    "example": true
   }
 ]
