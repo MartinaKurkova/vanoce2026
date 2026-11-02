@@ -284,7 +284,6 @@ h1 {
     shown.forEach(function (g) { grid.appendChild(card(g)); });
     var free = shown.filter(function (g) { return !reservations[g.id]; }).length;
     countEl.textContent = gifts.length ? (apiOk ? "Volných dárků: " + free + " z " + shown.length : "Dárků: " + shown.length) : "";
-    document.getElementById("demo").hidden = !gifts.some(function (g) { return g.example; });
     document.getElementById("offline").hidden = apiOk || !gifts.length;
   }
 
